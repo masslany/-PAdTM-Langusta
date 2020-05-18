@@ -17,13 +17,8 @@ interface CourseDao {
     }
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertWord(course: Course, word: Word) {
-
-    }
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(course: Course)
+    fun insert(course: Course)
 
     @Delete
-    suspend fun delete(course: Course)
+    fun delete(course: Course)
 }

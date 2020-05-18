@@ -19,7 +19,7 @@ class CourseRepository(private val courseDao: CourseDao) {
         return getCourseById(id).words
     }
 
-    suspend fun insertWord(course: Course, word: Word) {
+    fun insertWord(course: Course, word: Word) {
         var newWordsList = mutableListOf<Word>()
 
         for(w in course.words)
@@ -27,14 +27,14 @@ class CourseRepository(private val courseDao: CourseDao) {
         newWordsList.add(word)
 
         course.words = newWordsList
-        insert(course)
+        insertCourse(course)
     }
 
-    suspend fun insert(course: Course) {
+    fun insertCourse(course: Course) {
         return courseDao.insert(course)
     }
 
-    suspend fun delete(course: Course) {
+    fun deleteCourse(course: Course) {
         return courseDao.delete(course)
     }
 
