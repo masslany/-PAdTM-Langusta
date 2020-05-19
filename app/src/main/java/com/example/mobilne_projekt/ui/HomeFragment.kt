@@ -39,13 +39,13 @@ class HomeFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
         courseListButton.setOnClickListener(this)
-        addCourseButton.setOnClickListener(this)
+//        addCourseButton.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when(v!!.id) {
             R.id.courseListButton -> navController!!.navigate(R.id.action_homeFragment_to_courseListFragment)
-            R.id.addCourseButton -> navController!!.navigate(R.id.action_homeFragment_to_courseAddFragment)
+//            R.id.addCourseButton -> navController!!.navigate(R.id.action_homeFragment_to_courseAddFragment)
         }
     }
 
