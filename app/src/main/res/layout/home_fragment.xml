@@ -47,6 +47,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:textColor="#fff"
+            android:fontFamily="@font/roboto_light"
             android:text="@string/wejd_na_szczyt_w_nauce_s_ownictwa" />
 
     </LinearLayout>
@@ -88,13 +89,87 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
+            android:fontFamily="@font/roboto_medium"
             android:text="Kursy" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
+            android:fontFamily="@font/roboto_light"
             android:text="Słówka podzielone na kategorie" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/addCourseButton"
+        android:layout_width="207dp"
+        android:layout_height="105dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/home_button_background"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/courseListButton">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/icon3" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:fontFamily="@font/roboto_medium"
+            android:text="Dodawanie / Edycja" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:fontFamily="@font/roboto_light"
+            android:text="Dodaj nową listę słówek lub edytuj istniejącą" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/repeatCourseButton"
+        android:layout_width="207dp"
+        android:layout_height="105dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/home_button_background"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addCourseButton">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/icon1" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:fontFamily="@font/roboto_medium"
+            android:text="Powtórka" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:fontFamily="@font/roboto_light"
+            android:text="Losowa powtórka z całego słownictwa" />
 
     </LinearLayout>
 
