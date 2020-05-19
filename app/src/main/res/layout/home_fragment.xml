@@ -52,8 +52,6 @@
 
     </LinearLayout>
 
-    <!--TODO add additional two buttons, fix buttons' text to represent mockup more closely    -->
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
