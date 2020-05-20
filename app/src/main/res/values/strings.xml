@@ -3,4 +3,8 @@
     <string name="langusta">LANGUSTA</string>
     <string name="wejd_na_szczyt_w_nauce_s_ownictwa">Wejdź na szczyt w nauce słownictwa!</string>
     <string name="opcje">OPCJE</string>
+    <string name="nazwa">Nazwa</string>
+    <string name="slow_w_kursie">Słów w kursie</string>
+    <string name="procent_znajomosci">Procent znajomości</string>
+    <string name="plus">+</string>
 </resources>
