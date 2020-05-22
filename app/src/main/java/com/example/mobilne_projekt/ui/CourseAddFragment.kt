@@ -31,16 +31,16 @@ class CourseAddFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(CourseAddViewModel::class.java)
-        // TODO: Use the ViewModel
+
 
         add_curse_button.setOnClickListener {
             val courseTittle = name_curse_text.text.toString()
             val course = Course(courseTittle, listOf<Word>())
             //insert_course(course)
 
-            GlobalScope.launch {
-                viewModel.insertCourse(course)
-            }
+
+            viewModel.insertCourse(course)
+
 
         }
     }
