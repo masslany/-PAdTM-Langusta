@@ -21,6 +21,7 @@ import com.example.mobilne_projekt.data.db.entity.Course
 import com.example.mobilne_projekt.data.db.entity.Word
 import kotlinx.android.synthetic.main.course_list_fragment.*
 import kotlinx.android.synthetic.main.list_statistics.*
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -50,7 +51,7 @@ class CourseListFragment : Fragment() {
         courseListRecycleView.layoutManager = LinearLayoutManager(mContext)
 
         val course = Course("EXAMPLE", emptyList<Word>())
-            lifecycleScope.launch {
+        lifecycleScope.launch(Dispatchers.IO) {
             val database = FlashcardsDatabase.getDatabase(mContext);
             val courseDao = database.courseDao()
             courseDao.insert(course)
