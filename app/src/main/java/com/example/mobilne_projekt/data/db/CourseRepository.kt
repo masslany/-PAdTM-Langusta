@@ -24,10 +24,8 @@ class CourseRepository(private val courseDao: CourseDao) {
     }
 
     fun insertWord(course: Course, word: Word) {
-        var newWordsList = mutableListOf<Word>()
 
-        for(w in course.words)
-            newWordsList.add(w)
+        val newWordsList = mutableListOf<Word>().apply { addAll(course.words)}
         newWordsList.add(word)
 
         course.words = newWordsList
