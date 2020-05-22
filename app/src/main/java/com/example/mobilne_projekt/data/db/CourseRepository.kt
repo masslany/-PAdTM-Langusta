@@ -2,6 +2,7 @@ package com.example.mobilne_projekt.data.db
 
 import android.app.Application
 import android.content.Context
+import androidx.lifecycle.LiveData
 import com.example.mobilne_projekt.data.db.entity.Course
 import com.example.mobilne_projekt.data.db.entity.Word
 
@@ -11,6 +12,9 @@ class CourseRepository(private val courseDao: CourseDao) {
         return courseDao.getAllCourses()
     }
 
+    val allCourses: LiveData<List<Course>> = courseDao.getAllCoursesLiveData()
+    val allCoursesCount: LiveData<Int> = courseDao.getCoursesCountLiveData()
+
     fun getCourseById(id: Int): Course {
         return courseDao.getCourseById(id)
     }
@@ -19,22 +23,20 @@ class CourseRepository(private val courseDao: CourseDao) {
         return getCourseById(id).words
     }
 
-    suspend fun insertWord(course: Course, word: Word) {
-        var newWordsList = mutableListOf<Word>()
+    fun insertWord(course: Course, word: Word) {
 
-        for(w in course.words)
-            newWordsList.add(w)
+        val newWordsList = mutableListOf<Word>().apply { addAll(course.words)}
         newWordsList.add(word)
 
         course.words = newWordsList
-        insert(course)
+        insertCourse(course)
     }
 
-    suspend fun insert(course: Course) {
+    fun insertCourse(course: Course) {
         return courseDao.insert(course)
     }
 
-    suspend fun delete(course: Course) {
+    fun deleteCourse(course: Course) {
         return courseDao.delete(course)
     }
 

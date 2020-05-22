@@ -12,7 +12,11 @@
         tools:layout="@layout/home_fragment" >
         <action
             android:id="@+id/action_homeFragment_to_courseAddFragment"
-            app:destination="@id/courseAddFragment" />
+            app:destination="@id/courseAddFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
         <action
             android:id="@+id/action_homeFragment_to_courseListFragment"
             app:destination="@id/courseListFragment"
@@ -39,5 +43,13 @@
         <action
             android:id="@+id/action_courseListFragment_to_courseLearnFragment"
             app:destination="@id/courseLearnFragment" />
+        <action
+            android:id="@+id/action_courseListFragment_to_courseEditFragment"
+            app:destination="@id/courseEditFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/courseEditFragment"
+        android:name="com.example.mobilne_projekt.ui.CourseEditFragment"
+        android:label="course_edit_fragment"
+        tools:layout="@layout/course_edit_fragment" />
 </navigation>
