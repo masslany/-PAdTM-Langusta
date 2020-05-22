@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mobilne_projekt.MainActivity
 
@@ -20,6 +21,8 @@ import com.example.mobilne_projekt.data.db.entity.Course
 import com.example.mobilne_projekt.data.db.entity.Word
 import kotlinx.android.synthetic.main.course_list_fragment.*
 import kotlinx.android.synthetic.main.list_statistics.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class CourseListFragment : Fragment() {
 
@@ -45,6 +48,13 @@ class CourseListFragment : Fragment() {
         val adapter = CourseAdapter(mContext)
         courseListRecycleView.adapter = adapter
         courseListRecycleView.layoutManager = LinearLayoutManager(mContext)
+
+        val course = Course("EXAMPLE", emptyList<Word>())
+            lifecycleScope.launch {
+            val database = FlashcardsDatabase.getDatabase(mContext);
+            val courseDao = database.courseDao()
+            courseDao.insert(course)
+        }
 
         viewModel.allCourses.observe(viewLifecycleOwner, Observer { courses ->
             courses.let {adapter.setCourses(it)}
