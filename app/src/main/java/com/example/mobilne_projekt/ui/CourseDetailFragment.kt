@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 
 import com.example.mobilne_projekt.R
+import kotlinx.android.synthetic.main.course_detail_fragment.*
 
 class CourseDetailFragment : Fragment() {
 
@@ -17,6 +18,7 @@ class CourseDetailFragment : Fragment() {
     }
 
     private lateinit var viewModel: CourseDetailViewModel
+    private lateinit var courseName: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,7 +30,9 @@ class CourseDetailFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(CourseDetailViewModel::class.java)
-        // TODO: Use the ViewModel
+        courseName = arguments!!.getString("courseName", "unknown")
+
+        courseDetailNameTextView.text = courseName
     }
 
 }
