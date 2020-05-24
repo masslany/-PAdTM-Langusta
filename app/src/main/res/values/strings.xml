@@ -8,4 +8,7 @@
     <string name="procent_znajomosci">Procent znajomości</string>
     <string name="plus">+</string>
     <string name="dodanie_kursu">DODANIE KURSU</string>
+    <string name="hint_add_course"><font size="12">Nazwa kursu...</font></string>
+    <string name="stworz_kurs">STWÓRZ KURS</string>
+
 </resources>
