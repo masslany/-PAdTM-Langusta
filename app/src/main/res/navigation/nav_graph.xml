@@ -71,5 +71,17 @@
             android:name="courseName"
             app:argType="string"
             android:defaultValue="unknown" />
+        <action
+            android:id="@+id/action_courseDetailFragment_to_courseAddWord"
+            app:destination="@id/courseAddWord" />
+    </fragment>
+    <fragment
+        android:id="@+id/courseAddWord"
+        android:name="com.example.mobilne_projekt.ui.CourseAddWord"
+        android:label="course_add_word_fragment"
+        tools:layout="@layout/course_add_word_fragment" >
+        <action
+            android:id="@+id/action_courseAddWord_to_courseDetailFragment"
+            app:destination="@id/courseDetailFragment" />
     </fragment>
 </navigation>

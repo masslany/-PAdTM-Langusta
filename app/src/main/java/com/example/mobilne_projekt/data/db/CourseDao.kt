@@ -16,6 +16,9 @@ interface CourseDao {
     @Query("SELECT * FROM course WHERE courseName=:name")
     fun getCourseByName(name: String): Course
 
+    @Query("SELECT * FROM course WHERE courseName=:name")
+    fun getCourseByNameLiveData(name: String): LiveData<Course>
+
     fun getWordsFromCourse(name: String): List<Word> {
         return getCourseByName(name).words
     }
