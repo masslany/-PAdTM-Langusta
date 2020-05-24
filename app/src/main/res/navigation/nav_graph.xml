@@ -32,7 +32,11 @@
         android:id="@+id/courseAddFragment"
         android:name="com.example.mobilne_projekt.ui.CourseAddFragment"
         android:label="course_add_fragment"
-        tools:layout="@layout/course_add_fragment" />
+        tools:layout="@layout/course_add_fragment" >
+        <action
+            android:id="@+id/action_courseAddFragment_to_courseDetailFragment"
+            app:destination="@id/courseDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/courseLearnFragment"
         android:name="com.example.mobilne_projekt.ui.CourseLearnFragment"

@@ -5,9 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 
 import com.example.mobilne_projekt.R
 import com.example.mobilne_projekt.data.db.entity.Course
@@ -35,16 +38,23 @@ class CourseAddFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(CourseAddViewModel::class.java)
 
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val navController = Navigation.findNavController(view)
 
         add_curse_button.setOnClickListener {
             val courseTittle = name_curse_text.text.toString()
             val course = Course(courseTittle, emptyList<Word>())
 
+            val bundle = bundleOf("courseName" to courseTittle)
+
             lifecycleScope.launch(Dispatchers.IO) {
                 viewModel.insertCourse(course)
+                navController.navigate(R.id.action_courseAddFragment_to_courseDetailFragment, bundle)
             }
 
         }
     }
-
 }
