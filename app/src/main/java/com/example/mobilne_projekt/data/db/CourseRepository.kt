@@ -19,6 +19,10 @@ class CourseRepository(private val courseDao: CourseDao) {
         return courseDao.getCourseByName(name)
     }
 
+    fun getCourseByNameLiveData(name: String): LiveData<Course> {
+        return courseDao.getCourseByNameLiveData(name)
+    }
+
     fun getWordsFromCourse(name: String): List<Word> {
         return getCourseByName(name).words
     }

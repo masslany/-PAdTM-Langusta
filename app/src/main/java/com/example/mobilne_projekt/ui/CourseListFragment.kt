@@ -50,13 +50,6 @@ class CourseListFragment : Fragment() {
         courseListRecycleView.adapter = adapter
         courseListRecycleView.layoutManager = LinearLayoutManager(mContext)
 
-//        val course = Course("EXAMPLE", emptyList<Word>())
-//        lifecycleScope.launch(Dispatchers.IO) {
-//            val database = FlashcardsDatabase.getDatabase(mContext);
-//            val courseDao = database.courseDao()
-//            courseDao.insert(course)
-//        }
-
         viewModel.allCourses.observe(viewLifecycleOwner, Observer { courses ->
             courses.let {adapter.setCourses(it)}
         })
