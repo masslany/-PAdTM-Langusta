@@ -56,7 +56,6 @@ class CourseAddWord : Fragment() {
 
         lifecycleScope.launch(Dispatchers.IO) {
             course = viewModel.getCourse(courseName)
-            Log.d("COURSE WORDS: ", course.words.toString())
         }
 
         addWordButton.setOnClickListener {
