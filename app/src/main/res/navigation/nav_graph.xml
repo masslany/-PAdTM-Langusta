@@ -24,12 +24,19 @@
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_homeFragment_to_courseLearnFragment"
+            app:destination="@id/courseLearnFragment" />
     </fragment>
     <fragment
         android:id="@+id/courseAddFragment"
         android:name="com.example.mobilne_projekt.ui.CourseAddFragment"
         android:label="course_add_fragment"
-        tools:layout="@layout/course_add_fragment" />
+        tools:layout="@layout/course_add_fragment" >
+        <action
+            android:id="@+id/action_courseAddFragment_to_courseDetailFragment"
+            app:destination="@id/courseDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/courseLearnFragment"
         android:name="com.example.mobilne_projekt.ui.CourseLearnFragment"
@@ -41,15 +48,40 @@
         android:label="course_list_fragment"
         tools:layout="@layout/course_list_fragment" >
         <action
-            android:id="@+id/action_courseListFragment_to_courseLearnFragment"
-            app:destination="@id/courseLearnFragment" />
-        <action
-            android:id="@+id/action_courseListFragment_to_courseEditFragment"
-            app:destination="@id/courseEditFragment" />
+            android:id="@+id/action_courseListFragment_to_courseDetailFragment"
+            app:destination="@id/courseDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/courseEditFragment"
         android:name="com.example.mobilne_projekt.ui.CourseEditFragment"
         android:label="course_edit_fragment"
         tools:layout="@layout/course_edit_fragment" />
+    <fragment
+        android:id="@+id/courseDetailFragment"
+        android:name="com.example.mobilne_projekt.ui.CourseDetailFragment"
+        android:label="course_detail_fragment"
+        tools:layout="@layout/course_detail_fragment" >
+        <action
+            android:id="@+id/action_courseDetailFragment_to_courseEditFragment"
+            app:destination="@id/courseEditFragment" />
+        <action
+            android:id="@+id/action_courseDetailFragment_to_courseLearnFragment"
+            app:destination="@id/courseLearnFragment" />
+        <argument
+            android:name="courseName"
+            app:argType="string"
+            android:defaultValue="unknown" />
+        <action
+            android:id="@+id/action_courseDetailFragment_to_courseAddWord"
+            app:destination="@id/courseAddWord" />
+    </fragment>
+    <fragment
+        android:id="@+id/courseAddWord"
+        android:name="com.example.mobilne_projekt.ui.CourseAddWord"
+        android:label="course_add_word_fragment"
+        tools:layout="@layout/course_add_word_fragment" >
+        <action
+            android:id="@+id/action_courseAddWord_to_courseDetailFragment"
+            app:destination="@id/courseDetailFragment" />
+    </fragment>
 </navigation>

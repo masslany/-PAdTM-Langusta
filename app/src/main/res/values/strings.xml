@@ -10,5 +10,13 @@
     <string name="dodanie_kursu">DODANIE KURSU</string>
     <string name="hint_add_course"><font size="12">Nazwa kursu...</font></string>
     <string name="stworz_kurs">STWÓRZ KURS</string>
+    <string name="dodaj_nowe_slowko_do_kursu">Dodaj nowe słówko do kursu:</string>
+    <string name="liczba_slow_w_kursie">Liczba słów w kursie</string>
+    <string name="placeholder_text">X</string>
+    <string name="jezyk_znany">Język znany</string>
+    <string name="jezyk_docelowy">Język docelowy</string>
+    <string name="hint_add_word_known"><font size="12">Wpisz słówko w znanym języku</font></string>
+    <string name="hind_add_word_unknown"><font size="12">Wpisz słówko w docelowym języku</font></string>
+    <string name="dodaj">Dodaj</string>
 
 </resources>
