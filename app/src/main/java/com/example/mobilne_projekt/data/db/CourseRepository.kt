@@ -27,6 +27,10 @@ class CourseRepository(private val courseDao: CourseDao) {
         return getCourseByName(name).words
     }
 
+    fun getWordsLiveData(name: String): LiveData<List<Word>> {
+        return courseDao.getWordsLiveData(name)
+    }
+
     fun insertWord(course: Course, word: Word) {
 
         val newWordsList = mutableListOf<Word>().apply { addAll(course.words)}

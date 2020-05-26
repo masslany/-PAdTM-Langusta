@@ -1,17 +1,24 @@
 package com.example.mobilne_projekt.ui
 
-import androidx.lifecycle.ViewModelProviders
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.*
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.mobilne_projekt.R
+import com.example.mobilne_projekt.adapter.WordAdapter
+import com.example.mobilne_projekt.data.db.entity.Word
 import kotlinx.android.synthetic.main.course_detail_fragment.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class CourseDetailFragment : Fragment() {
 
@@ -21,6 +28,7 @@ class CourseDetailFragment : Fragment() {
 
     private lateinit var viewModel: CourseDetailViewModel
     private lateinit var courseName: String
+    private lateinit var mContext: Context
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,8 +41,9 @@ class CourseDetailFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(CourseDetailViewModel::class.java)
         courseName = arguments!!.getString("courseName", "unknown")
+        mContext = activity!!.applicationContext
 
-        courseDetailNameTextView.text = courseName
+        bindUI()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -44,6 +53,24 @@ class CourseDetailFragment : Fragment() {
             val bundle = bundleOf("courseName" to courseName)
             Navigation.findNavController(view).navigate(R.id.action_courseDetailFragment_to_courseAddWord, bundle)
         }
+    }
+
+    private fun bindUI() = lifecycleScope.launch(Dispatchers.IO) {
+
+        val wordAdapter = WordAdapter(mContext)
+        wordsRecyclerView.apply {
+            adapter = wordAdapter
+            layoutManager = LinearLayoutManager(mContext)
+        }
+
+        val wordsLiveData = viewModel.getWordsLiveData(courseName)
+
+        withContext(Dispatchers.Main) {
+            wordsLiveData.observe(viewLifecycleOwner, Observer { words ->
+                words.let {wordAdapter.setWords(it)}
+            })
+        }
+        courseDetailNameTextView.text = courseName
     }
 
 }

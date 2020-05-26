@@ -18,5 +18,7 @@
     <string name="hint_add_word_known"><font size="12">Wpisz słówko w znanym języku</font></string>
     <string name="hind_add_word_unknown"><font size="12">Wpisz słówko w docelowym języku</font></string>
     <string name="dodaj">Dodaj</string>
+    <string name="tlumaczenie">Tłumaczenie</string>
+    <string name="oryginal">Oryginał</string>
 
 </resources>
