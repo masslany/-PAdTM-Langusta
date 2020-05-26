@@ -49,7 +49,11 @@
         tools:layout="@layout/course_list_fragment" >
         <action
             android:id="@+id/action_courseListFragment_to_courseDetailFragment"
-            app:destination="@id/courseDetailFragment" />
+            app:destination="@id/courseDetailFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/courseEditFragment"
@@ -73,7 +77,11 @@
             android:defaultValue="unknown" />
         <action
             android:id="@+id/action_courseDetailFragment_to_courseAddWord"
-            app:destination="@id/courseAddWord" />
+            app:destination="@id/courseAddWord"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/courseAddWord"
@@ -82,6 +90,10 @@
         tools:layout="@layout/course_add_word_fragment" >
         <action
             android:id="@+id/action_courseAddWord_to_courseDetailFragment"
-            app:destination="@id/courseDetailFragment" />
+            app:destination="@id/courseDetailFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
     </fragment>
 </navigation>

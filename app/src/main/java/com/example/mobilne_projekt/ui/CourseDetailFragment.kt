@@ -16,6 +16,7 @@ import com.example.mobilne_projekt.R
 import com.example.mobilne_projekt.adapter.WordAdapter
 import com.example.mobilne_projekt.data.db.entity.Word
 import kotlinx.android.synthetic.main.course_detail_fragment.*
+import kotlinx.android.synthetic.main.course_detail_top_panel.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -60,6 +61,8 @@ class CourseDetailFragment : Fragment() {
         val wordAdapter = WordAdapter(mContext)
         wordsRecyclerView.apply {
             adapter = wordAdapter
+            val topSpacingItemDecoration = TopSpacingItemDecoration(24)
+            addItemDecoration(topSpacingItemDecoration)
             layoutManager = LinearLayoutManager(mContext)
         }
 
