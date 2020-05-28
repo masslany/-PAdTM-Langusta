@@ -11,59 +11,53 @@
         android:layout_height="wrap_content"
         >
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="wrap_content"
+
+        <TextView
+            android:id="@+id/wordOriginalTextView"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="8dp"
+            android:layout_marginStart="16dp"
+            android:text="@string/car_placeholder"
+            android:textColor="@color/mailPurple"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/nameTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/oryginal" />
-
-            <TextView
-                android:id="@+id/wordOriginalTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Zwierzęta" />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/linearLayout2"
+        <TextView
+            android:id="@+id/wordTranslationTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:width="120dp"
+            android:text="@string/samochod_placeholder"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/wordOriginalTextView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/editWordButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="32dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/ic_edit_white_24dp"
+            android:backgroundTint="@color/mailPurple"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/deleteWordButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/deleteWordButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/ic_delete_white_24dp"
+            android:backgroundTint="@color/mailPurple"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
-
-            <TextView
-                android:id="@+id/wordsTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tlumaczenie" />
-
-            <TextView
-                android:id="@+id/wordTranslationTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="22" />
-        </LinearLayout>
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

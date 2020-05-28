@@ -36,52 +36,84 @@
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:text="@string/placeholder_text"
         app:layout_constraintEnd_toEndOf="@+id/imageView6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
-    <TextView
-        android:id="@+id/wordCountTextView"
+    <LinearLayout
+        android:id="@+id/wordCountLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="@string/liczba_slow_w_kursie"
-        android:textColor="#FFFFFF"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/courseDetailNameTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/courseDetailNameTextView">
+
+
+        <TextView
+            android:id="@+id/wordCountValueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="@string/_75_placeholder"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/wordCountTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/slowek"
+            android:textColor="#FFFFFF" />
+
+
+
+    </LinearLayout>
 
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="80dp"
+        android:layout_width="220dp"
         android:layout_height="60dp"
-        android:layout_marginStart="110dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:background="#F5F5F5"
-        android:orientation="vertical"
+        android:background="@drawable/course_detail_learn_background"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wordCountTextView"
+        app:layout_constraintTop_toBottomOf="@+id/wordCountLayout"
         app:layout_constraintVertical_bias="1.0">
+
+        <ImageView
+            android:id="@+id/imageViewLearn"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:padding="4dp"
+            app:srcCompat="@drawable/rakieta" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/rozpocznij_nauke"
+            android:textColor="@color/mailPurple"
+            android:textStyle="bold" />
+
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linear5"
-        android:layout_width="80dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="110dp"
-        android:layout_marginBottom="16dp"
-        android:background="#F5F5F5"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Button
+        android:id="@+id/editCourseButton"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/ic_edit_white_24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout3"
-        app:layout_constraintTop_toBottomOf="@+id/wordCountTextView"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

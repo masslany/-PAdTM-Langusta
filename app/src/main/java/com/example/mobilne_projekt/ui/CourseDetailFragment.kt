@@ -67,10 +67,16 @@ class CourseDetailFragment : Fragment() {
         }
 
         val wordsLiveData = viewModel.getWordsLiveData(courseName)
+        val wordsCountLiveData = viewModel.getWordsCountLiveData(courseName)
 
         withContext(Dispatchers.Main) {
             wordsLiveData.observe(viewLifecycleOwner, Observer { words ->
                 words.let {wordAdapter.setWords(it)}
+            })
+
+            wordsCountLiveData.observe(viewLifecycleOwner, Observer {
+                wordCountValueTextView.text = it.toString()
+                wordCountTextView.text = resources.getQuantityString(R.plurals.slowek, it)
             })
         }
         courseDetailNameTextView.text = courseName
