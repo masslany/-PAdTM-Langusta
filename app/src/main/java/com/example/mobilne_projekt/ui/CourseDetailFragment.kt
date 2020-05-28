@@ -35,13 +35,13 @@ class CourseDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        courseName = arguments!!.getString("courseName", "unknown")
         return inflater.inflate(R.layout.course_detail_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(CourseDetailViewModel::class.java)
-        courseName = arguments!!.getString("courseName", "unknown")
         mContext = activity!!.applicationContext
 
         bindUI()
@@ -50,9 +50,18 @@ class CourseDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val bundle = bundleOf("courseName" to courseName)
+
         addWordFab.setOnClickListener {
-            val bundle = bundleOf("courseName" to courseName)
             Navigation.findNavController(view).navigate(R.id.action_courseDetailFragment_to_courseAddWord, bundle)
+        }
+
+        courseLearnLayout.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_courseDetailFragment_to_courseLearnFragment, bundle)
+        }
+
+        editCourseButton.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_courseDetailFragment_to_courseEditFragment, bundle)
         }
     }
 

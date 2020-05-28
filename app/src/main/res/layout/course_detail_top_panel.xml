@@ -72,11 +72,13 @@
 
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/courseLearnLayout"
         android:layout_width="220dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:focusable="true"
         android:background="@drawable/course_detail_learn_background"
         android:gravity="center_vertical"
         android:orientation="horizontal"
