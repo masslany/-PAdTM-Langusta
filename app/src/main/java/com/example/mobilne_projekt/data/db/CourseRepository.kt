@@ -2,6 +2,8 @@ package com.example.mobilne_projekt.data.db
 
 import android.app.Application
 import android.content.Context
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.example.mobilne_projekt.data.db.entity.Course
 import com.example.mobilne_projekt.data.db.entity.Word
 
@@ -11,19 +13,34 @@ class CourseRepository(private val courseDao: CourseDao) {
         return courseDao.getAllCourses()
     }
 
-    fun getCourseById(id: Int): Course {
-        return courseDao.getCourseById(id)
+    val allCourses: LiveData<List<Course>> = courseDao.getAllCoursesLiveData()
+    val allCoursesCount: LiveData<Int> = courseDao.getCoursesCountLiveData()
+
+    fun getCourseByName(name: String): Course {
+        return courseDao.getCourseByName(name)
     }
 
-    fun getWordsFromCourse(id: Int): List<Word> {
-        return getCourseById(id).words
+    fun getCourseByNameLiveData(name: String): LiveData<Course> {
+        return courseDao.getCourseByNameLiveData(name)
+    }
+
+    fun getWordsFromCourse(name: String): List<Word> {
+        return getCourseByName(name).words
+    }
+
+    fun getWordsLiveData(name: String): LiveData<List<Word>> {
+        return courseDao.getWordsLiveData(name)
+    }
+
+    fun getWordsCountLiveData(name: String): LiveData<Int> {
+        val wordsCount = MutableLiveData<Int>()
+        wordsCount.postValue(getWordsFromCourse(name).size)
+        return wordsCount
     }
 
     fun insertWord(course: Course, word: Word) {
-        var newWordsList = mutableListOf<Word>()
 
-        for(w in course.words)
-            newWordsList.add(w)
+        val newWordsList = mutableListOf<Word>().apply { addAll(course.words)}
         newWordsList.add(word)
 
         course.words = newWordsList

@@ -3,4 +3,33 @@
     <string name="langusta">LANGUSTA</string>
     <string name="wejd_na_szczyt_w_nauce_s_ownictwa">Wejdź na szczyt w nauce słownictwa!</string>
     <string name="opcje">OPCJE</string>
+    <string name="nazwa">Nazwa</string>
+    <string name="slow_w_kursie">Słów w kursie</string>
+    <string name="procent_znajomosci">Procent znajomości</string>
+    <string name="plus">+</string>
+    <string name="dodanie_kursu">DODANIE KURSU</string>
+    <string name="hint_add_course"><font size="12">Nazwa kursu...</font></string>
+    <string name="stworz_kurs">STWÓRZ KURS</string>
+    <string name="dodaj_nowe_slowko_do_kursu">Dodaj nowe słówko do kursu:</string>
+    <string name="liczba_slow_w_kursie">Liczba słów w kursie</string>
+    <string name="placeholder_text">X</string>
+    <string name="jezyk_znany">Język znany</string>
+    <string name="jezyk_docelowy">Język docelowy</string>
+    <string name="hint_add_word_known"><font size="12">Wpisz słówko w znanym języku</font></string>
+    <string name="hind_add_word_unknown"><font size="12">Wpisz słówko w docelowym języku</font></string>
+    <string name="dodaj">Dodaj</string>
+    <string name="tlumaczenie">Tłumaczenie</string>
+    <string name="oryginal">Oryginał</string>
+    <string name="rozpocznij_nauke">ROZPOCZNIJ NAUKĘ</string>
+    <string name="car_placeholder">Car</string>
+    <string name="samochod_placeholder">Samochód</string>
+    <string name="_75_placeholder">75</string>
+    <string name="slowek">\u0020słówek</string>
+
+    <plurals name="slowek">
+        <item quantity="one">\u0020słówko</item>
+        <item quantity="few">\u0020słówka</item>
+        <item quantity="other">\u0020słowek</item>
+    </plurals>
+
 </resources>
