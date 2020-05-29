@@ -1,6 +1,7 @@
 package com.example.mobilne_projekt.data.db
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.room.*
 import com.example.mobilne_projekt.data.db.entity.Course
 import com.example.mobilne_projekt.data.db.entity.Word
@@ -21,6 +22,13 @@ interface CourseDao {
 
     fun getWordsFromCourse(name: String): List<Word> {
         return getCourseByName(name).words
+    }
+
+    fun getWordsLiveData(name: String): LiveData<List<Word>> {
+        val wordMutableLiveData = MutableLiveData<List<Word>>()
+        wordMutableLiveData.postValue(getCourseByName(name).words)
+
+        return wordMutableLiveData as LiveData<List<Word>>
     }
 
     @Query("SELECT count(courseName) FROM course")
