@@ -16,7 +16,7 @@
             android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="8dp"
@@ -28,6 +28,7 @@
                 android:id="@+id/nameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_light"
                 android:text="@string/nazwa" />
 
             <TextView
@@ -35,7 +36,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Zwierzęta" />
+                android:fontFamily="@font/roboto_medium"
+                android:text="Zwierzęta"
+                android:textColor="@color/mailPurple"
+                android:textSize="18sp" />
         </LinearLayout>
 
         <!--        <LinearLayout-->
@@ -68,12 +72,12 @@
             android:id="@+id/linearLayout2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
+            android:layout_marginEnd="16dp"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/addWordButton"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0">
 
@@ -81,6 +85,7 @@
                 android:id="@+id/wordsTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_light"
                 android:text="@string/slow_w_kursie" />
 
             <TextView
@@ -88,20 +93,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="22" />
+                android:fontFamily="@font/roboto_medium"
+                android:text="22"
+                android:textSize="18sp" />
         </LinearLayout>
-
-        <Button
-            android:id="@+id/addWordButton"
-            android:layout_width="46dp"
-            android:layout_height="52dp"
-            android:layout_marginEnd="8dp"
-            android:background="#9a77f7"
-            android:text="@string/plus"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

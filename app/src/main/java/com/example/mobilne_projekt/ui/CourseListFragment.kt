@@ -49,6 +49,8 @@ class CourseListFragment : Fragment() {
         val adapter = CourseAdapter(mContext)
         courseListRecycleView.adapter = adapter
         courseListRecycleView.layoutManager = LinearLayoutManager(mContext)
+        val topSpacingItemDecoration = TopSpacingItemDecoration(24)
+        courseListRecycleView.addItemDecoration(topSpacingItemDecoration)
 
         viewModel.allCourses.observe(viewLifecycleOwner, Observer { courses ->
             courses.let {adapter.setCourses(it)}

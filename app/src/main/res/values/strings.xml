@@ -25,6 +25,9 @@
     <string name="samochod_placeholder">Samochód</string>
     <string name="_75_placeholder">75</string>
     <string name="slowek">\u0020słówek</string>
+    <string name="nowe_kursy">Nowe kursy</string>
+    <string name="ukonczone_kursy">Ukończone kursy</string>
+    <string name="utworzone_kursy">Utworzone kursy</string>
 
     <plurals name="slowek">
         <item quantity="one">\u0020słówko</item>
