@@ -48,5 +48,4 @@ class CourseAdapter internal constructor(context: Context) : RecyclerView.Adapte
         val courseNameTextView: TextView = itemView.courseNameTextView
     }
 
-
 }
