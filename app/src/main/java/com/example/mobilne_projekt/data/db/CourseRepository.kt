@@ -15,30 +15,32 @@ class CourseRepository(private val courseDao: CourseDao) {
     val allCourses: LiveData<List<Course>> = courseDao.getAllCoursesLiveData()
     val allCoursesCount: LiveData<Int> = courseDao.getCoursesCountLiveData()
 
-    fun getCourseById(id: Int): Course {
-        return courseDao.getCourseById(id)
+    fun getCourseByName(name: String): Course {
+        return courseDao.getCourseByName(name)
     }
 
-    fun getWordsFromCourse(id: Int): List<Word> {
-        return getCourseById(id).words
+    fun getCourseByNameLiveData(name: String): LiveData<Course> {
+        return courseDao.getCourseByNameLiveData(name)
     }
 
-    suspend fun insertWord(course: Course, word: Word) {
-        var newWordsList = mutableListOf<Word>()
+    fun getWordsFromCourse(name: String): List<Word> {
+        return getCourseByName(name).words
+    }
 
-        for(w in course.words)
-            newWordsList.add(w)
+    fun insertWord(course: Course, word: Word) {
+
+        val newWordsList = mutableListOf<Word>().apply { addAll(course.words)}
         newWordsList.add(word)
 
         course.words = newWordsList
-        insert(course)
+        insertCourse(course)
     }
 
-    suspend fun insert(course: Course) {
+    fun insertCourse(course: Course) {
         return courseDao.insert(course)
     }
 
-    suspend fun delete(course: Course) {
+    fun deleteCourse(course: Course) {
         return courseDao.delete(course)
     }
 

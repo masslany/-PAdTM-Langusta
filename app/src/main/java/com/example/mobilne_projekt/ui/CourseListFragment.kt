@@ -1,5 +1,6 @@
 package com.example.mobilne_projekt.ui
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mobilne_projekt.MainActivity
 
@@ -19,6 +21,9 @@ import com.example.mobilne_projekt.data.db.entity.Course
 import com.example.mobilne_projekt.data.db.entity.Word
 import kotlinx.android.synthetic.main.course_list_fragment.*
 import kotlinx.android.synthetic.main.list_statistics.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class CourseListFragment : Fragment() {
 
@@ -27,6 +32,7 @@ class CourseListFragment : Fragment() {
     }
 
     private lateinit var viewModel: CourseListViewModel
+    private lateinit var mContext: Context
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,10 +44,11 @@ class CourseListFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(CourseListViewModel::class.java)
+        mContext = activity!!.applicationContext
 
-        val adapter = CourseAdapter(super.getContext()!!)
+        val adapter = CourseAdapter(mContext)
         courseListRecycleView.adapter = adapter
-        courseListRecycleView.layoutManager = LinearLayoutManager(super.getContext())
+        courseListRecycleView.layoutManager = LinearLayoutManager(mContext)
 
         viewModel.allCourses.observe(viewLifecycleOwner, Observer { courses ->
             courses.let {adapter.setCourses(it)}

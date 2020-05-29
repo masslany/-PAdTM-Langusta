@@ -13,24 +13,22 @@ interface CourseDao {
     @Query("SELECT * FROM course ORDER BY courseName ASC")
     fun getAllCoursesLiveData(): LiveData<List<Course>>
 
-    @Query("SELECT * FROM course WHERE id=:id")
-    fun getCourseById(id: Int): Course
+    @Query("SELECT * FROM course WHERE courseName=:name")
+    fun getCourseByName(name: String): Course
 
-    fun getWordsFromCourse(id: Int): List<Word> {
-        return getCourseById(id).words
+    @Query("SELECT * FROM course WHERE courseName=:name")
+    fun getCourseByNameLiveData(name: String): LiveData<Course>
+
+    fun getWordsFromCourse(name: String): List<Word> {
+        return getCourseByName(name).words
     }
 
     @Query("SELECT count(courseName) FROM course")
     fun getCoursesCountLiveData(): LiveData<Int>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertWord(course: Course, word: Word) {
-
-    }
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(course: Course)
+    fun insert(course: Course)
 
     @Delete
-    suspend fun delete(course: Course)
+    fun delete(course: Course)
 }

@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.os.bundleOf
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobilne_projekt.R
 import com.example.mobilne_projekt.data.db.entity.Course
@@ -24,6 +26,15 @@ class CourseAdapter internal constructor(context: Context) : RecyclerView.Adapte
     override fun onBindViewHolder(holder: CourseViewHolder, position: Int) {
         val currentItem = courses[position]
         holder.courseNameTextView.text = currentItem.courseName
+
+        val bundle = bundleOf("courseName" to currentItem.courseName)
+
+        holder.itemView.setOnClickListener(
+
+            Navigation.createNavigateOnClickListener(
+                R.id.action_courseListFragment_to_courseDetailFragment,
+                bundle)
+        )
     }
 
     override fun getItemCount() = courses.size
