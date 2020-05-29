@@ -26,6 +26,7 @@ class CourseAdapter internal constructor(context: Context) : RecyclerView.Adapte
     override fun onBindViewHolder(holder: CourseViewHolder, position: Int) {
         val currentItem = courses[position]
         holder.courseNameTextView.text = currentItem.courseName
+        holder.courseWordCountTextView.text = currentItem.words.size.toString()
 
         val bundle = bundleOf("courseName" to currentItem.courseName)
 
@@ -46,6 +47,7 @@ class CourseAdapter internal constructor(context: Context) : RecyclerView.Adapte
 
     class CourseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val courseNameTextView: TextView = itemView.courseNameTextView
+        val courseWordCountTextView: TextView = itemView.wordCountTextView
     }
 
 }
