@@ -14,7 +14,7 @@
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="wrap_content"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:gravity="center"
@@ -38,6 +38,8 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="Zwierzęta"
+                android:ellipsize="end"
+                android:maxLines="1"
                 android:textColor="@color/mailPurple"
                 android:textSize="18sp" />
         </LinearLayout>
