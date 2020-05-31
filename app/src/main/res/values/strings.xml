@@ -28,6 +28,10 @@
     <string name="nowe_kursy">Nowe kursy</string>
     <string name="ukonczone_kursy">Ukończone kursy</string>
     <string name="utworzone_kursy">Utworzone kursy</string>
+    <string name="edytuj_kurs">Edytuj kurs:</string>
+    <string name="edytuj_nazw_kursu">Edytuj nazwę kursu</string>
+    <string name="nazwa_kursu">Nazwa kursu</string>
+    <string name="edytuj">EDYTUJ</string>
 
     <plurals name="slowek">
         <item quantity="one">\u0020słówko</item>
