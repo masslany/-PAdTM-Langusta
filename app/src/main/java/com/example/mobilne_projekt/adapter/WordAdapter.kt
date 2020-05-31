@@ -1,12 +1,15 @@
 package com.example.mobilne_projekt.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobilne_projekt.R
 import com.example.mobilne_projekt.data.db.entity.Word
@@ -28,7 +31,8 @@ class WordAdapter internal constructor(context: Context) : RecyclerView.Adapter<
         holder.wordTranslationTextView.text = currentItem.translated
 
         holder.wordEditButton.setOnClickListener {
-            Toast.makeText(it.context, "EDIT BUTTON", Toast.LENGTH_SHORT).show()
+            Toast.makeText(it.context, currentItem.original, Toast.LENGTH_SHORT).show()
+            it.findNavController().navigate(R.id.action_courseDetailFragment_to_editWordFragment)
         }
 
         holder.wordDeleteButton.setOnClickListener {

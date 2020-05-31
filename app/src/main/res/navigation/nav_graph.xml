@@ -82,6 +82,9 @@
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_courseDetailFragment_to_editWordFragment"
+            app:destination="@id/editWordFragment" />
     </fragment>
     <fragment
         android:id="@+id/courseAddWord"
@@ -96,4 +99,9 @@
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out" />
     </fragment>
+    <fragment
+        android:id="@+id/editWordFragment"
+        android:name="com.example.mobilne_projekt.ui.EditWordFragment"
+        android:label="edit_word_fragment"
+        tools:layout="@layout/edit_word_fragment" />
 </navigation>
