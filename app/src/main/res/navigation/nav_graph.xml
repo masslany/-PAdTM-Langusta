@@ -64,7 +64,16 @@
         android:id="@+id/courseEditFragment"
         android:name="com.example.mobilne_projekt.ui.CourseEditFragment"
         android:label="course_edit_fragment"
-        tools:layout="@layout/course_edit_fragment" />
+        tools:layout="@layout/course_edit_fragment" >
+        <argument
+            android:name="courseName"
+            app:argType="string"
+            android:defaultValue="unknown" />
+        <argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
     <fragment
         android:id="@+id/courseDetailFragment"
         android:name="com.example.mobilne_projekt.ui.CourseDetailFragment"
@@ -73,6 +82,10 @@
         <action
             android:id="@+id/action_courseDetailFragment_to_courseEditFragment"
             app:destination="@id/courseEditFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"
             app:popUpTo="@id/courseDetailFragment" />
         <action
             android:id="@+id/action_courseDetailFragment_to_courseLearnFragment"
@@ -110,7 +123,7 @@
     </fragment>
     <fragment
         android:id="@+id/editWordFragment"
-        android:name="com.example.mobilne_projekt.ui.EditWordFragment"
+        android:name="com.example.mobilne_projekt.ui.CourseEditWordFragment"
         android:label="edit_word_fragment"
         tools:layout="@layout/edit_word_fragment" />
 </navigation>

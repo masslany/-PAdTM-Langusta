@@ -71,7 +71,9 @@ class CourseDetailFragment : Fragment() {
 
         withContext(Dispatchers.Main) {
 
-            val wordAdapter = WordAdapter(mContext)
+            val wordAdapter = WordAdapter(mContext).apply {
+                wordsCourseName = courseName
+            }
             wordsRecyclerView.apply {
                 adapter = wordAdapter
                 val topSpacingItemDecoration = TopSpacingItemDecoration(24)

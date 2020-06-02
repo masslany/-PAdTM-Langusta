@@ -46,7 +46,7 @@ class CourseAddFragment : Fragment() {
 
         add_curse_button.setOnClickListener {
             val courseTittle = name_curse_text.text.toString()
-            val course = Course(courseTittle, emptyList<Word>())
+            val course = Course(courseTittle, mutableListOf<Word>())
 
             val bundle = bundleOf("courseName" to courseTittle)
 

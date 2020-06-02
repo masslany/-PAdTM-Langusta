@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +19,7 @@ import kotlinx.android.synthetic.main.item_word.view.*
 class WordAdapter internal constructor(context: Context) : RecyclerView.Adapter<WordAdapter.WordViewHolder>(){
 
     private var words = emptyList<Word>()
+    var wordsCourseName: String = ""
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_word,
@@ -31,8 +33,8 @@ class WordAdapter internal constructor(context: Context) : RecyclerView.Adapter<
         holder.wordTranslationTextView.text = currentItem.translated
 
         holder.wordEditButton.setOnClickListener {
-            Toast.makeText(it.context, currentItem.original, Toast.LENGTH_SHORT).show()
-            it.findNavController().navigate(R.id.action_courseDetailFragment_to_editWordFragment)
+            val bundle = bundleOf("courseName" to wordsCourseName, "position" to position )
+            it.findNavController().navigate(R.id.action_courseDetailFragment_to_editWordFragment, bundle)
         }
 
         holder.wordDeleteButton.setOnClickListener {
@@ -46,6 +48,7 @@ class WordAdapter internal constructor(context: Context) : RecyclerView.Adapter<
         this.words = words
         notifyDataSetChanged()
     }
+
 
     class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val wordOriginalTextView: TextView = itemView.wordOriginalTextView

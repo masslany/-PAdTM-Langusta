@@ -31,6 +31,9 @@ interface CourseDao {
         return wordMutableLiveData as LiveData<List<Word>>
     }
 
+    @Query("UPDATE Course SET words=:words WHERE courseName=:courseName")
+    fun updateWord(courseName: String, words: List<Word>)
+
     @Query("SELECT count(courseName) FROM course")
     fun getCoursesCountLiveData(): LiveData<Int>
 
