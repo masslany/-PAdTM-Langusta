@@ -35,7 +35,6 @@ class CourseDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        courseName = arguments!!.getString("courseName", "unknown")
         return inflater.inflate(R.layout.course_detail_fragment, container, false)
     }
 
@@ -49,7 +48,7 @@ class CourseDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        courseName = arguments!!.getString("courseName", "unknown")
         val bundle = bundleOf("courseName" to courseName)
 
         addWordFab.setOnClickListener {
@@ -67,18 +66,19 @@ class CourseDetailFragment : Fragment() {
 
     private fun bindUI() = lifecycleScope.launch(Dispatchers.IO) {
 
-        val wordAdapter = WordAdapter(mContext)
-        wordsRecyclerView.apply {
-            adapter = wordAdapter
-            val topSpacingItemDecoration = TopSpacingItemDecoration(24)
-            addItemDecoration(topSpacingItemDecoration)
-            layoutManager = LinearLayoutManager(mContext)
-        }
-
         val wordsLiveData = viewModel.getWordsLiveData(courseName)
         val wordsCountLiveData = viewModel.getWordsCountLiveData(courseName)
 
         withContext(Dispatchers.Main) {
+
+            val wordAdapter = WordAdapter(mContext)
+            wordsRecyclerView.apply {
+                adapter = wordAdapter
+                val topSpacingItemDecoration = TopSpacingItemDecoration(24)
+                addItemDecoration(topSpacingItemDecoration)
+                layoutManager = LinearLayoutManager(mContext)
+            }
+
             wordsLiveData.observe(viewLifecycleOwner, Observer { words ->
                 words.let {wordAdapter.setWords(it)}
             })
@@ -87,8 +87,9 @@ class CourseDetailFragment : Fragment() {
                 wordCountValueTextView.text = it.toString()
                 wordCountTextView.text = resources.getQuantityString(R.plurals.slowek, it)
             })
+
+            courseDetailNameTextView.text = courseName
         }
-        courseDetailNameTextView.text = courseName
     }
 
 }

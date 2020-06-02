@@ -47,6 +47,10 @@ class CourseRepository(private val courseDao: CourseDao) {
         insertCourse(course)
     }
 
+    fun updateCourseName(course: Course, name: String) {
+        return courseDao.updateCourseName(course.courseName, name)
+    }
+
     fun insertCourse(course: Course) {
         return courseDao.insert(course)
     }
