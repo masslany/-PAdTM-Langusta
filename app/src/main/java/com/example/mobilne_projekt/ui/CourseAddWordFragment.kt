@@ -1,7 +1,6 @@
 package com.example.mobilne_projekt.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +11,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.bumptech.glide.util.Util
 
 import com.example.mobilne_projekt.R
 import com.example.mobilne_projekt.data.db.entity.Course
@@ -21,10 +19,10 @@ import kotlinx.android.synthetic.main.course_add_word_fragment.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class CourseAddWord : Fragment() {
+class CourseAddWordFragment : Fragment() {
 
     companion object {
-        fun newInstance() = CourseAddWord()
+        fun newInstance() = CourseAddWordFragment()
     }
 
     private lateinit var viewModel: CourseAddWordViewModel

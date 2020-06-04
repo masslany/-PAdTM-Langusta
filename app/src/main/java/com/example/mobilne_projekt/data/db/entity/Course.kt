@@ -12,7 +12,7 @@ import com.example.mobilne_projekt.data.db.DataConverter
 
 data class Course(
     @PrimaryKey
-    val courseName: String,
+    var courseName: String,
     @TypeConverters(DataConverter::class)
     var words: MutableList<Word>
 ) {

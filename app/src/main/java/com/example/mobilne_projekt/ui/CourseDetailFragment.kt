@@ -35,7 +35,6 @@ class CourseDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        courseName = arguments!!.getString("courseName", "unknown")
         return inflater.inflate(R.layout.course_detail_fragment, container, false)
     }
 
@@ -43,8 +42,12 @@ class CourseDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         viewModel = ViewModelProvider(this).get(CourseDetailViewModel::class.java)
         mContext = activity!!.applicationContext
+
+        courseName = arguments!!.getString("courseName", "unknown")
+
         val bundle = bundleOf("courseName" to courseName)
 
         addWordFab.setOnClickListener {
@@ -70,6 +73,7 @@ class CourseDetailFragment : Fragment() {
         val wordsCountLiveData = viewModel.getWordsCountLiveData(courseName)
 
         withContext(Dispatchers.Main) {
+
 
             val wordAdapter = WordAdapter(mContext).apply {
                 wordsCourseName = courseName

@@ -86,7 +86,8 @@
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out"
-            app:popUpTo="@id/courseDetailFragment" />
+            app:popUpTo="@id/courseListFragment" />
+
         <action
             android:id="@+id/action_courseDetailFragment_to_courseLearnFragment"
             app:destination="@id/courseLearnFragment"
@@ -110,7 +111,7 @@
     </fragment>
     <fragment
         android:id="@+id/courseAddWord"
-        android:name="com.example.mobilne_projekt.ui.CourseAddWord"
+        android:name="com.example.mobilne_projekt.ui.CourseAddWordFragment"
         android:label="course_add_word_fragment"
         tools:layout="@layout/course_add_word_fragment" >
         <action
