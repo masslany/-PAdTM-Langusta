@@ -14,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.mobilne_projekt.R
 import com.example.mobilne_projekt.data.db.entity.Course
 import com.example.mobilne_projekt.data.db.entity.Word
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.edit_word_fragment.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -70,6 +71,7 @@ class CourseEditWordFragment : Fragment() {
             lifecycleScope.launch(Dispatchers.IO) {
                 viewModel.updateWord(course, newWord, position)
             }
+            Snackbar.make(it,"Pomyślnie edytowano słówko",Snackbar.LENGTH_SHORT).show()
         }
 
     }
