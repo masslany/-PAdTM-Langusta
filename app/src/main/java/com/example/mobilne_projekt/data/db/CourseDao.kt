@@ -28,8 +28,16 @@ interface CourseDao {
         val wordMutableLiveData = MutableLiveData<List<Word>>()
         wordMutableLiveData.postValue(getCourseByName(name).words)
 
-        return wordMutableLiveData as LiveData<List<Word>>
+        return wordMutableLiveData
     }
+
+
+    @Query("UPDATE Course SET words=:words WHERE courseName=:courseName")
+    fun updateWord(courseName: String, words: List<Word>)
+
+    @Query("UPDATE Course SET courseName = :name WHERE courseName = :oldName")
+    fun updateCourseName(oldName:String, name: String)
+
 
     @Query("SELECT count(courseName) FROM course")
     fun getCoursesCountLiveData(): LiveData<Int>
