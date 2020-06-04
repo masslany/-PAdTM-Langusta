@@ -38,6 +38,10 @@ class CourseRepository(private val courseDao: CourseDao) {
         return wordsCount
     }
 
+    fun updateWord(courseName: String, words: List<Word>) {
+        courseDao.updateWord(courseName, words)
+    }
+
     fun insertWord(course: Course, word: Word) {
 
         val newWordsList = mutableListOf<Word>().apply { addAll(course.words)}

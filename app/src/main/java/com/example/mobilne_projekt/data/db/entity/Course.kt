@@ -14,7 +14,7 @@ data class Course(
     @PrimaryKey
     var courseName: String,
     @TypeConverters(DataConverter::class)
-    var words: List<Word>
+    var words: MutableList<Word>
 ) {
 
 }

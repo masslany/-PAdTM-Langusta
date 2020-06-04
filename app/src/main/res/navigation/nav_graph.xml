@@ -16,17 +16,20 @@
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
-            app:popExitAnim="@android:anim/fade_out" />
+            app:popExitAnim="@android:anim/fade_out"
+            app:popUpTo="@id/homeFragment" />
         <action
             android:id="@+id/action_homeFragment_to_courseListFragment"
             app:destination="@id/courseListFragment"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
-            app:popExitAnim="@android:anim/fade_out" />
+            app:popExitAnim="@android:anim/fade_out"
+            app:popUpTo="@id/homeFragment" />
         <action
             android:id="@+id/action_homeFragment_to_courseLearnFragment"
-            app:destination="@id/courseLearnFragment" />
+            app:destination="@id/courseLearnFragment"
+            app:popUpTo="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/courseAddFragment"
@@ -35,7 +38,8 @@
         tools:layout="@layout/course_add_fragment" >
         <action
             android:id="@+id/action_courseAddFragment_to_courseDetailFragment"
-            app:destination="@id/courseDetailFragment" />
+            app:destination="@id/courseDetailFragment"
+            app:popUpTo="@id/courseListFragment" />
     </fragment>
     <fragment
         android:id="@+id/courseLearnFragment"
@@ -53,13 +57,23 @@
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
-            app:popExitAnim="@android:anim/fade_out" />
+            app:popExitAnim="@android:anim/fade_out"
+            app:popUpTo="@id/courseListFragment" />
     </fragment>
     <fragment
         android:id="@+id/courseEditFragment"
         android:name="com.example.mobilne_projekt.ui.CourseEditFragment"
         android:label="course_edit_fragment"
-        tools:layout="@layout/course_edit_fragment" />
+        tools:layout="@layout/course_edit_fragment" >
+        <argument
+            android:name="courseName"
+            app:argType="string"
+            android:defaultValue="unknown" />
+        <argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
     <fragment
         android:id="@+id/courseDetailFragment"
         android:name="com.example.mobilne_projekt.ui.CourseDetailFragment"
@@ -73,9 +87,11 @@
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out"
             app:popUpTo="@id/courseListFragment" />
+
         <action
             android:id="@+id/action_courseDetailFragment_to_courseLearnFragment"
-            app:destination="@id/courseLearnFragment" />
+            app:destination="@id/courseLearnFragment"
+            app:popUpTo="@id/courseDetailFragment" />
         <argument
             android:name="courseName"
             app:argType="string"
@@ -86,7 +102,12 @@
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
-            app:popExitAnim="@android:anim/fade_out" />
+            app:popExitAnim="@android:anim/fade_out"
+            app:popUpTo="@id/courseDetailFragment" />
+        <action
+            android:id="@+id/action_courseDetailFragment_to_editWordFragment"
+            app:destination="@id/editWordFragment"
+            app:popUpTo="@id/courseDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/courseAddWord"
@@ -101,4 +122,9 @@
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out" />
     </fragment>
+    <fragment
+        android:id="@+id/editWordFragment"
+        android:name="com.example.mobilne_projekt.ui.CourseEditWordFragment"
+        android:label="edit_word_fragment"
+        tools:layout="@layout/edit_word_fragment" />
 </navigation>
