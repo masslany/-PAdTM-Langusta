@@ -65,8 +65,6 @@ class CourseAddWordFragment : Fragment() {
                 lifecycleScope.launch(Dispatchers.IO) {
                     viewModel.addWordToCourse(course, word)
                 }
-                val bundle = bundleOf("courseName" to courseName)
-                navController.navigate(R.id.action_courseAddWord_to_courseDetailFragment, bundle)
             }
 
         }

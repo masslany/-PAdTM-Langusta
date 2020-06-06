@@ -95,10 +95,11 @@
         android:visibility="invisible" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/nextWordTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
+        android:clickable="true"
         android:text="@string/nast_pne_s_wko"
         android:textColor="#FFFFFF"
         android:textSize="16sp"

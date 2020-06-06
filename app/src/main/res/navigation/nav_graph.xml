@@ -118,7 +118,8 @@
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out"
-            app:popUpTo="@id/courseDetailFragment" />
+            app:popUpTo="@id/courseDetailFragment"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_courseDetailFragment_to_editWordFragment"
             app:destination="@id/editWordFragment"
@@ -128,15 +129,7 @@
         android:id="@+id/courseAddWord"
         android:name="com.example.mobilne_projekt.ui.CourseAddWordFragment"
         android:label="course_add_word_fragment"
-        tools:layout="@layout/course_add_word_fragment" >
-        <action
-            android:id="@+id/action_courseAddWord_to_courseDetailFragment"
-            app:destination="@id/courseDetailFragment"
-            app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@android:anim/fade_out"
-            app:popEnterAnim="@android:anim/fade_in"
-            app:popExitAnim="@android:anim/fade_out" />
-    </fragment>
+        tools:layout="@layout/course_add_word_fragment" />
     <fragment
         android:id="@+id/editWordFragment"
         android:name="com.example.mobilne_projekt.ui.CourseEditWordFragment"

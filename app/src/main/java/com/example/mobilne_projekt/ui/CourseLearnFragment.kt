@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 
 import com.example.mobilne_projekt.R
@@ -29,22 +30,49 @@ class CourseLearnFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(CourseLearnViewModel::class.java)
-        // TODO: Use the ViewModel
+
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         courseName = arguments?.getString("courseName")
+        viewModel = ViewModelProvider(this).get(CourseLearnViewModel::class.java)
+        viewModel.initializeCourse(courseName)
 
-        if(courseName != null) {
-            courseNameTextView.text = courseName
-        } else {
-            courseNameTextView.text = "Wszystkie kursy"
-        }
+        viewModel.courseNameLiveData.observe(viewLifecycleOwner, Observer {
+            if(it != null)
+                courseNameTextView.text = it
+        })
+
+        viewModel.wordLiveData.observe(viewLifecycleOwner, Observer {
+            if(it != null) {
+                println(it.original)
+                println(it.translated)
+                knownWordTextView.text = it.original
+                unknownWordTextView.text = it.translated
+            }
+        })
 
         showTranslationButton.setOnClickListener {
             unknownWordTextView.visibility = View.VISIBLE
+        }
+
+        knowWordButton.setOnClickListener {
+            viewModel.updateWord()
+            if(courseName == null)
+                viewModel.initializeCourse(courseName)
+            else
+                viewModel.setNonLearnedWordLiveData()
+            unknownWordTextView.visibility = View.INVISIBLE
+        }
+
+        nextWordTextView.setOnClickListener {
+            if(courseName == null)
+                viewModel.initializeCourse(courseName)
+            else
+                viewModel.setNonLearnedWordLiveData()
+            unknownWordTextView.visibility = View.INVISIBLE
         }
     }
 

@@ -1,7 +1,5 @@
 package com.example.mobilne_projekt.data.db
 
-import android.app.Application
-import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.mobilne_projekt.data.db.entity.Course
@@ -22,6 +20,34 @@ class CourseRepository(private val courseDao: CourseDao) {
 
     fun getCourseByNameLiveData(name: String): LiveData<Course> {
         return courseDao.getCourseByNameLiveData(name)
+    }
+
+    fun getRandomUnfinishedCourse(): Course {
+        val courses = courseDao.getAllCourses()
+        val unfinishedCourses = mutableListOf<Course>()
+
+        for(course in courses) {
+            var isUnfinished = false
+
+            for(word in course.words) {
+                if(word.isKnown == false)
+                    isUnfinished = true
+            }
+
+            if(isUnfinished)
+                unfinishedCourses.add(course)
+
+            isUnfinished = false
+        }
+
+
+        return if (unfinishedCourses.shuffled().isNotEmpty())
+            unfinishedCourses.shuffled()[0]
+        else
+            Course("Kursy ukończone", mutableListOf<Word>(
+                Word("Wszystko już potrafisz!", "Gratulacje", true)
+                )
+            )
     }
 
     fun getWordsFromCourse(name: String): List<Word> {
