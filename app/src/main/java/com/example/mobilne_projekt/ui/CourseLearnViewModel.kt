@@ -82,10 +82,6 @@ class CourseLearnViewModel(application: Application) : AndroidViewModel(applicat
                 return@launch
             mCourse!!.words[index].isKnown = true
             repository.updateWord(courseName!!, mCourse!!.words)
-
-            withContext(Dispatchers.Main) {
-                setNonLearnedWordLiveData()
-            }
         }
 
     }
