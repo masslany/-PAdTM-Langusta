@@ -8,8 +8,11 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 
 import com.example.mobilne_projekt.R
+import kotlinx.android.synthetic.main.course_learn_fragment.*
 
 class CourseLearnFragment : Fragment() {
+
+    private var courseName: String? = null
 
     companion object {
         fun newInstance() = CourseLearnFragment()
@@ -28,6 +31,21 @@ class CourseLearnFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(CourseLearnViewModel::class.java)
         // TODO: Use the ViewModel
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        courseName = arguments?.getString("courseName")
+
+        if(courseName != null) {
+            courseNameTextView.text = courseName
+        } else {
+            courseNameTextView.text = "Wszystkie kursy"
+        }
+
+        showTranslationButton.setOnClickListener {
+            unknownWordTextView.visibility = View.VISIBLE
+        }
     }
 
 }

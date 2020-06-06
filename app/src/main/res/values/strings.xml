@@ -34,6 +34,9 @@
     <string name="edytuj_nazw_kursu">Edytuj nazwę kursu</string>
     <string name="nazwa_kursu">Nazwa kursu</string>
     <string name="edytuj">EDYTUJ</string>
+    <string name="poka_t_umaczenie">Pokaż tłumaczenie</string>
+    <string name="umiem">Umiem</string>
+    <string name="nast_pne_s_wko">Następne słówko</string>
 
     <plurals name="slowek">
         <item quantity="one">\u0020słówko</item>

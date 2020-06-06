@@ -62,6 +62,10 @@ class CourseDetailFragment : Fragment() {
             Navigation.findNavController(view).navigate(R.id.action_courseDetailFragment_to_courseEditFragment, bundle)
         }
 
+        courseLearnLayout.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_courseDetailFragment_to_courseLearnFragment, bundle)
+        }
+
 
 
         bindUI()

@@ -2,6 +2,7 @@ package com.example.mobilne_projekt.ui
 
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -40,12 +41,14 @@ class HomeFragment : Fragment(), View.OnClickListener {
         navController = Navigation.findNavController(view)
         courseListButton.setOnClickListener(this)
         addCourseButton.setOnClickListener(this)
+        repeatCourseButton.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
-        when(v!!.id) {
+        when (v!!.id) {
             R.id.courseListButton -> navController!!.navigate(R.id.action_homeFragment_to_courseListFragment)
             R.id.addCourseButton -> navController!!.navigate(R.id.action_homeFragment_to_courseAddFragment)
+            R.id.repeatCourseButton -> navController!!.navigate(R.id.action_homeFragment_to_courseLearnFragment)
         }
     }
 
